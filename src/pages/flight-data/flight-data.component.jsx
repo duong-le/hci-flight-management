@@ -9,34 +9,47 @@ export default class FlightDataPage extends Component {
     const { Option } = Select;
     return (
       <div>
-        <Breadcrumb>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>Application Center</Breadcrumb.Item>
-          <Breadcrumb.Item>Application List</Breadcrumb.Item>
-          <Breadcrumb.Item>An Application</Breadcrumb.Item>
-        </Breadcrumb>
+        <div className="breadcrumb">
+          <Breadcrumb>
+            <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb.Item>Application Center</Breadcrumb.Item>
+            <Breadcrumb.Item>Application List</Breadcrumb.Item>
+            <Breadcrumb.Item>An Application</Breadcrumb.Item>
+          </Breadcrumb>
+        </div>
         <Row>
           <Col xs={24} sm={24} md={24} lg={6} xl={6}>
-            <Search placeholder="Search..." className="w-100" />
-
             <Card title="Filter">
-              <Select defaultValue="drone" className="w-100">
-                <Option value="drone">Drone ID</Option>
-                <Option value="flight">Flight ID</Option>
-              </Select>
-              <Select defaultValue="author" className="w-100">
-                <Option value="author">Author ID</Option>
-                <Option value="flight">Flight ID</Option>
-              </Select>
-              <DatePicker className="w-100" />
-              <Slider defaultValue={30} />
-              <InputNumber min={1} max={10} defaultValue={3} />
+              <Row gutter={[0, 24]}>
+                <Col span={24}>
+                  <Search placeholder="Search..." className="w-100" />
+                </Col>
+                <Col span={24}>
+                  <Select defaultValue="drone" className="w-100">
+                    <Option value="drone">Drone ID</Option>
+                    <Option value="flight">Flight ID</Option>
+                  </Select>
+                </Col>
+                <Col span={24}>
+                  <Select defaultValue="author" className="w-100">
+                    <Option value="author">Author ID</Option>
+                    <Option value="flight">Flight ID</Option>
+                  </Select>
+                </Col>
+                <Col span={24}>
+                  <DatePicker className="w-100" />
+                </Col>
+                <Col span={24}>
+                  <Slider defaultValue={30} />
+                </Col>
+                <Col span={24}>
+                  <InputNumber min={1} max={10} defaultValue={3} />
+                </Col>
+              </Row>
             </Card>
 
-            <Button block>Reset</Button>
-            <Button type="primary" block>
-              Download
-            </Button>
+            <Button block className="btn"> Reset </Button>
+            <Button type="primary" block className="btn"> Download </Button>
           </Col>
           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
             <Carousel />
