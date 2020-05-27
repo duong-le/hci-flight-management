@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './flight-data.style.css';
 import { Table, Tag, Space } from 'antd';
+import { Link } from 'react-router-dom';
 
 export default class FlightDataPage extends Component {
   render() {
     const { Column } = Table;
     return (
       <Table dataSource={data}>
-        <Column title="Flight ID" key="flightId" render={(record) => <a href="/flight-data/flight">{record.flightId}</a>} />
+        <Column title="Flight ID" key="flightId" render={(record) => <Link to="/flight-data/flight">{record.flightId}</Link>} />
         <Column title="Pilot" dataIndex="pilot" key="pilot" />
         <Column title="Drone" dataIndex="drone" key="drone" />
         <Column title="Location" dataIndex="location" key="location" />
