@@ -1,25 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'antd';
+import {
+  HomeOutlined,
+  AreaChartOutlined,
+  ControlOutlined,
+  WarningOutlined,
+  LineChartOutlined,
+  SlidersOutlined
+} from '@ant-design/icons';
 
-import './header.styles.scss';
+import './nav-bar.styles.scss';
 
-const Header = () => (
+const NavBar = () => (
   <div className='header'>
-    <Menu mode='horizontal'>
-      <Menu.Item key='home-page'>
+    <Menu mode='inline'>
+      <Menu.Item key='home-page' icon={<HomeOutlined />}>
         <Link to='/'>Home</Link>
       </Menu.Item>
-      <Menu.SubMenu
+      <Menu.SubMenu 
         key='drone-manipulation'
         title='Drone Manipulation'
+        icon={<AreaChartOutlined />}
         disabled
       >
         <Menu.Item key='setting:1'>Payload control</Menu.Item>
         <Menu.Item key='setting:2'>Drone arround</Menu.Item>
         <Menu.Item key='setting:3'>Set up automatic flight itinerary</Menu.Item>
       </Menu.SubMenu>
-      <Menu.SubMenu key='drone-management' title='Drone Management'>
+      <Menu.SubMenu key='drone-management' title='Drone Management' icon={<ControlOutlined />}>
         <Menu.Item key='setting:4'>
           <Link to='/flight-data'>Flight data management</Link>
         </Menu.Item>
@@ -33,14 +42,14 @@ const Header = () => (
           Drone equipment management
         </Menu.Item>
       </Menu.SubMenu>
-      <Menu.SubMenu key='risk-analysis' title='Risk Analysis' disabled>
+      <Menu.SubMenu key='risk-analysis' title='Risk Analysis' icon={<WarningOutlined />} disabled>
         <Menu.Item key='setting:9'>Electrical grid components</Menu.Item>
         <Menu.Item key='setting:10'>Receive warning and report</Menu.Item>
         <Menu.Item key='setting:11'>
           Send warnings and test requirement
         </Menu.Item>
       </Menu.SubMenu>
-      <Menu.SubMenu key='monitor' title='Center Monitor' disabled>
+      <Menu.SubMenu key='monitor' title='Center Monitor' icon={<LineChartOutlined />} disabled>
         <Menu.Item key='setting:12'>Electrical corridor management</Menu.Item>
         <Menu.Item key='setting:14'>Inspection list</Menu.Item>
         <Menu.Item key='setting:15'>Create new inspection manually</Menu.Item>
@@ -51,6 +60,7 @@ const Header = () => (
       <Menu.SubMenu
         key='construction-management'
         title='Construction Management'
+        icon={<SlidersOutlined />}
         disabled
       >
         <Menu.Item key='setting:17'>Construction list</Menu.Item>
@@ -62,4 +72,4 @@ const Header = () => (
   </div>
 );
 
-export default Header;
+export default NavBar;

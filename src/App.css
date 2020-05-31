@@ -1,5 +1,26 @@
 @import '~antd/dist/antd.css';
 
-.App {
-  margin: 0 10%;
+.ant-layout-sider {
+  background: white;
+  flex: 0 0 300px !important;
+  max-width: 300px !important;
+  min-width: 300px !important;
+  width: 300px !important;
+}
+
+.logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+
+.header-layout,
+.content-layout {
+  background: #fff;
+}
+
+.content-layout {
+  margin: 24px 16px;
+  padding: 24px;
+  min-height: 280px;
 }
