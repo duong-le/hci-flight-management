@@ -5,7 +5,7 @@ const FLIGHTS_DATA = [
     pilot: 'John Brown',
     drone: 'F-150',
     location: 'New York',
-    date: '10-03-2019',
+    date: '03-10-2019',
     tags: ['rainy', 'night']
   },
   {
@@ -14,7 +14,7 @@ const FLIGHTS_DATA = [
     pilot: 'Steven Bay',
     drone: 'F-145',
     location: 'London',
-    date: '15-07-2019',
+    date: '07-15-2019',
     tags: ['night']
   },
   {
@@ -23,7 +23,7 @@ const FLIGHTS_DATA = [
     pilot: 'Richard Dean',
     drone: 'F-99',
     location: 'Sydney',
-    date: '22-01-2020',
+    date: '01-22-2020',
     tags: ['cloudy']
   },
   {
@@ -32,7 +32,7 @@ const FLIGHTS_DATA = [
     pilot: 'Ken Tran',
     drone: 'F-22',
     location: 'Tokyo',
-    date: '03-12-2019',
+    date: '12-03-2019',
     tags: ['sunny']
   },
   {
@@ -41,7 +41,7 @@ const FLIGHTS_DATA = [
     pilot: 'Steward Le',
     drone: 'F-17',
     location: 'Denver',
-    date: '19-03-2020',
+    date: '03-19-2020',
     tags: ['windy', 'cloudy']
   }
 ];
