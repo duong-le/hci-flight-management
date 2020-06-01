@@ -9,7 +9,6 @@ import './flight-data.styles.scss';
 const FlightDataPage = () => {
   return (
     <div className='flight-data-page'>
-      <h1>FLIGHT DATA MANAGEMENT</h1>
       <CardList />
       <ChartList />
       <FlightList />
