@@ -18,7 +18,7 @@ const NavBar = () => (
       <Menu.Item key='home-page' icon={<HomeOutlined />}>
         <Link to='/'>Home</Link>
       </Menu.Item>
-      <Menu.SubMenu 
+      <Menu.SubMenu
         key='drone-manipulation'
         title='Drone Manipulation'
         icon={<AreaChartOutlined />}
@@ -28,7 +28,11 @@ const NavBar = () => (
         <Menu.Item key='setting:2'>Drone arround</Menu.Item>
         <Menu.Item key='setting:3'>Set up automatic flight itinerary</Menu.Item>
       </Menu.SubMenu>
-      <Menu.SubMenu key='drone-management' title='Drone Management' icon={<ControlOutlined />}>
+      <Menu.SubMenu
+        key='drone-management'
+        title='Drone Management'
+        icon={<ControlOutlined />}
+      >
         <Menu.Item key='setting:4'>
           <Link to='/flight-data'>Flight data management</Link>
         </Menu.Item>
@@ -42,14 +46,24 @@ const NavBar = () => (
           Drone equipment management
         </Menu.Item>
       </Menu.SubMenu>
-      <Menu.SubMenu key='risk-analysis' title='Risk Analysis' icon={<WarningOutlined />} disabled>
+      <Menu.SubMenu
+        key='risk-analysis'
+        title='Risk Analysis'
+        icon={<WarningOutlined />}
+        disabled
+      >
         <Menu.Item key='setting:9'>Electrical grid components</Menu.Item>
         <Menu.Item key='setting:10'>Receive warning and report</Menu.Item>
         <Menu.Item key='setting:11'>
           Send warnings and test requirement
         </Menu.Item>
       </Menu.SubMenu>
-      <Menu.SubMenu key='monitor' title='Center Monitor' icon={<LineChartOutlined />} disabled>
+      <Menu.SubMenu
+        key='monitor'
+        title='Center Monitor'
+        icon={<LineChartOutlined />}
+        disabled
+      >
         <Menu.Item key='setting:12'>Electrical corridor management</Menu.Item>
         <Menu.Item key='setting:14'>Inspection list</Menu.Item>
         <Menu.Item key='setting:15'>Create new inspection manually</Menu.Item>

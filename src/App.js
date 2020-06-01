@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import NavBar from './components/nav-bar/nav-bar.component';
@@ -12,19 +12,29 @@ import { Layout } from 'antd';
 const { Header, Sider, Content } = Layout;
 
 function App() {
+  const [collapsed, setCollapsed] = useState(true);
+
+  const toggleCollapsed = () => setCollapsed(!collapsed);
+
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider>
-        <div className="logo">HI04</div>
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        onCollapse={toggleCollapsed}
+        theme='light'
+        width={300}
+      >
+        <div className='logo'>HI04</div>
         <NavBar />
       </Sider>
       <Layout>
-        <Header className="header-layout"></Header>
-        <Content className="content-layout">
+        <Header className='header-layout'></Header>
+        <Content className='content-layout'>
           <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/flight-data" component={FlightDataPage} />
-            <Route exact path="/flight/images" component={FlightImagesPage} />
+            <Route exact path='/' component={HomePage} />
+            <Route exact path='/flight-data' component={FlightDataPage} />
+            <Route exact path='/flight/images' component={FlightImagesPage} />
           </Switch>
         </Content>
       </Layout>
