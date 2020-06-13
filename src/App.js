@@ -36,7 +36,11 @@ function App() {
           <Switch>
             <Route exact path='/' component={HomePage} />
             <Route exact path='/flight-data' component={FlightDataPage} />
-            <Route exact path='/flight/images' component={FlightImagesPage} />
+            <Route
+              exact
+              path='/flights/:flightId/images'
+              component={FlightImagesPage}
+            />
           </Switch>
         </Content>
       </Layout>

@@ -6,7 +6,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename='/hci-flight-management'>
     <App />
   </BrowserRouter>,
   document.getElementById('root')

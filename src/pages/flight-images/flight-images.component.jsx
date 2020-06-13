@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 import {
   Breadcrumb,
@@ -22,13 +23,15 @@ const FlightImagesPage = () => {
   const { Search } = Input;
   const { Option } = Select;
 
+  const { flightId } = useParams();
+
   return (
     <div>
       <div className='breadcrumb'>
         <Breadcrumb>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>Flight Data</Breadcrumb.Item>
-          <Breadcrumb.Item>9715</Breadcrumb.Item>
+          <Breadcrumb.Item>{flightId}</Breadcrumb.Item>
         </Breadcrumb>
       </div>
       <Row>
