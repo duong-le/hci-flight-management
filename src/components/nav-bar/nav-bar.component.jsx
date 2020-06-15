@@ -14,7 +14,7 @@ import {
 import './nav-bar.styles.scss';
 
 const NavBar = () => (
-  <div className='header'>
+  <div className='nav-bar'>
     <Menu mode='inline'>
       <Menu.Item key='home-page' icon={<HomeOutlined />}>
         <Link to='/'>Home</Link>
