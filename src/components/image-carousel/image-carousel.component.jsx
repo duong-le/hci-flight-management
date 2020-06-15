@@ -5,9 +5,10 @@ import './image-carousel.styles.scss';
 import ElectricalGrid from '../../assets/images/electrical-grid.jpg';
 import PowerLines from '../../assets/images/power-lines.jpg';
 import Cable from '../../assets/images/cable.jpg';
+import Drone from '../../assets/images/drone.jpg';
 
 const ImageCarousel = () => {
-  const listImg = [ElectricalGrid, PowerLines, Cable];
+  const listImg = [ElectricalGrid, PowerLines, Cable, Drone];
   const settings = {
     customPaging: function (i) {
       return <img src={listImg[i]} alt="preview" />;
@@ -31,6 +32,17 @@ const ImageCarousel = () => {
         </div>
         <div>
           <img src={Cable} alt="preview" />
+        </div>
+        <div>
+          <iframe
+            title="video"
+            width="630"
+            height="420"
+            src="https://www.youtube.com/embed/Bj5ByZKVNao?controls=0&amp;start=43"
+            frameBorder={0}
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
       </Slider>
     </div>

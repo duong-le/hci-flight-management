@@ -1,5 +1,25 @@
 .card-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 30px 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.m-l-15 {
+  margin-left: 15px;
+}
+
+.m-b-0 {
+  margin-bottom: 0;
+}
+
+.text-muted {
+  color: rgba(114, 132, 154, 0.7) !important;
 }

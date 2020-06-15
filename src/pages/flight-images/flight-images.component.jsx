@@ -1,113 +1,62 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-
-import {
-  Breadcrumb,
-  Row,
-  Col,
-  Input,
-  Card,
-  Select,
-  DatePicker,
-  Slider,
-  InputNumber,
-  Button,
-  Descriptions
-} from 'antd';
-
+import React, { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { Breadcrumb, Row, Col, Card, Descriptions } from 'antd';
+import { HomeOutlined } from '@ant-design/icons';
 import ImageCarousel from '../../components/image-carousel/image-carousel.component';
-
+import GoogleMapReact from 'google-map-react';
 import './flight-images.styles.scss';
 
+const Marker = () => (
+  <span className="material-icons" style={{ color: '#ea4335' }}>
+    room
+  </span>
+);
+
 const FlightImagesPage = () => {
-  const { Search } = Input;
-  const { Option } = Select;
+  const [center, setCenter] = useState({ lat: 21.0051018, lng: 105.8456554 });
+  const [zoom, setZoom] = useState(15);
 
   const { flightId } = useParams();
 
   return (
-    <div>
-      <div className='breadcrumb'>
-        <Breadcrumb>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>Flight Data</Breadcrumb.Item>
+    <div className="flight-images">
+      <div className="breadcrumb">
+        <Breadcrumb separator=">">
+          <Breadcrumb.Item>
+            <Link to="/">
+              <HomeOutlined /> Home
+            </Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>
+            <Link to="/flight-data">Flight Data Management</Link>
+          </Breadcrumb.Item>
           <Breadcrumb.Item>{flightId}</Breadcrumb.Item>
         </Breadcrumb>
       </div>
       <Row>
         <Col xs={24} sm={24} md={24} lg={6} xl={6}>
-          <Card title='Filter'>
-            <Row gutter={[0, 24]}>
-              <Col span={24}>
-                <Search placeholder='Search...' className='w-100' />
-              </Col>
-              <Col span={24}>
-                <Select defaultValue='drone' className='w-100'>
-                  <Option value='drone'>Drone ID</Option>
-                  <Option value='flight'>Flight ID</Option>
-                </Select>
-              </Col>
-              <Col span={24}>
-                <Select defaultValue='author' className='w-100'>
-                  <Option value='author'>Author ID</Option>
-                  <Option value='flight'>Flight ID</Option>
-                </Select>
-              </Col>
-              <Col span={24}>
-                <DatePicker className='w-100' />
-              </Col>
-              <Col span={24}>
-                <Slider defaultValue={30} />
-              </Col>
-              <Col span={24}>
-                <InputNumber min={1} max={10} defaultValue={3} />
-              </Col>
-            </Row>
-          </Card>
-
-          <Button block className='btn'>
-            {' '}
-            Reset{' '}
-          </Button>
-          <Button type='primary' block className='btn'>
-            {' '}
-            Download{' '}
-          </Button>
+          <Descriptions title="Metadata" bordered column={1}>
+            <Descriptions.Item label="Author">Elianora Vasilov</Descriptions.Item>
+            <Descriptions.Item label="Drone ID">351-661-3252</Descriptions.Item>
+            <Descriptions.Item label="Filename">DSC01234.PNG</Descriptions.Item>
+            <Descriptions.Item label="File size">3.62 MB</Descriptions.Item>
+            <Descriptions.Item label="Created at">17/05/2019 18:30:41</Descriptions.Item>
+            <Descriptions.Item label="Dimension">1920 x 1080</Descriptions.Item>
+            <Descriptions.Item label="Color mode">RGB</Descriptions.Item>
+          </Descriptions>
         </Col>
+
         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
           <ImageCarousel />
         </Col>
-        <Col xs={24} sm={24} md={24} lg={6} xl={6}>
-          <Card title='Metadata'>
-            <Descriptions bordered column={1}>
-              <Descriptions.Item label='Author'>
-                Elianora Vasilov
-              </Descriptions.Item>
-              <Descriptions.Item label='Drone ID'>
-                351-661-3252
-              </Descriptions.Item>
-              <Descriptions.Item label='Filename'>
-                DSC01234.PNG
-              </Descriptions.Item>
-              <Descriptions.Item label='File size'>3.62 MB</Descriptions.Item>
-              <Descriptions.Item label='Created at'>
-                17/05/2019 18:30:41
-              </Descriptions.Item>
-              <Descriptions.Item label='Dimension'>
-                1920 x 1080
-              </Descriptions.Item>
-              <Descriptions.Item label='Color mode'>RGB</Descriptions.Item>
-            </Descriptions>
-          </Card>
 
-          <Card title='Location'>
-            <img
-              src={
-                'https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/connected_world_wuay.svg'
-              }
-              width={'100%'}
-              alt='preview'
-            />
+        <Col xs={24} sm={24} md={24} lg={6} xl={6}>
+          <Card title="Location">
+            <div style={{ height: '40vh', width: '100%' }}>
+              <GoogleMapReact bootstrapURLKeys={{ key: '' }} defaultCenter={center} defaultZoom={zoom}>
+                <Marker lat={21.0051018} lng={105.8456554} />
+              </GoogleMapReact>
+            </div>
           </Card>
         </Col>
       </Row>

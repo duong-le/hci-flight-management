@@ -30,18 +30,11 @@ const TopLocationChart = () => {
         fontSize: '20px',
         color: '#666'
       }
-    }
+    },
+    colors: ['#FF7875', '#8FAD40', '#F3EED9', '#FC7E44', '#574240']
   };
 
-  return (
-    <ReactApexChart
-      series={series}
-      options={options}
-      type='donut'
-      height={350}
-      width={400}
-    />
-  );
+  return <ReactApexChart series={series} options={options} type="donut" height={350} width={400} />;
 };
 
 export default TopLocationChart;
