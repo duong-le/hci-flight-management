@@ -12,48 +12,34 @@ const FlightList = () => {
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
 
-  const getColumnSearchProps = dataIndex => ({
-    filterDropdown: ({
-      setSelectedKeys,
-      selectedKeys,
-      confirm,
-      clearFilters
-    }) => (
+  const getColumnSearchProps = (dataIndex) => ({
+    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
       <div style={{ padding: 8 }}>
         <Input
           placeholder={`Search ${dataIndex}`}
           value={selectedKeys[0]}
-          onChange={e =>
-            setSelectedKeys(e.target.value ? [e.target.value] : [])
-          }
+          onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
           onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
           style={{ width: 188, marginBottom: 8, display: 'block' }}
         />
         <Space>
           <Button
-            type='primary'
+            type="primary"
             onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
             icon={<SearchOutlined />}
-            size='small'
+            size="small"
             style={{ width: 90 }}
           >
             Search
           </Button>
-          <Button
-            onClick={() => handleReset(clearFilters)}
-            size='small'
-            style={{ width: 90 }}
-          >
+          <Button onClick={() => handleReset(clearFilters)} size="small" style={{ width: 90 }}>
             Reset
           </Button>
         </Space>
       </div>
     ),
-    filterIcon: filtered => (
-      <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />
-    ),
-    onFilter: (value, record) =>
-      record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())
+    filterIcon: (filtered) => <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />,
+    onFilter: (value, record) => record[dataIndex].toString().toLowerCase().includes(value.toLowerCase())
   });
 
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
@@ -62,7 +48,7 @@ const FlightList = () => {
     setSearchedColumn(dataIndex);
   };
 
-  const handleReset = clearFilters => {
+  const handleReset = (clearFilters) => {
     clearFilters();
     setSearchText('');
   };
@@ -72,7 +58,7 @@ const FlightList = () => {
       title: 'Flight ID',
       dataIndex: 'flightId',
       key: 'flightId',
-      render: id => <Link to={`/flights/${id}/images`}>{id}</Link>,
+      render: (id) => <Link to={`/flights/${id}/images`}>{id}</Link>,
       sorter: (a, b) => a.flightId - b.flightId,
       ...getColumnSearchProps('flightId')
     },
@@ -87,8 +73,7 @@ const FlightList = () => {
       title: 'Drone',
       dataIndex: 'drone',
       key: 'drone',
-      sorter: (a, b) =>
-        a.drone.localeCompare(b.drone, undefined, { numeric: true }),
+      sorter: (a, b) => a.drone.localeCompare(b.drone, undefined, { numeric: true }),
       ...getColumnSearchProps('drone')
     },
     {
@@ -109,10 +94,10 @@ const FlightList = () => {
       title: 'Tags',
       dataIndex: 'tags',
       key: 'tags',
-      render: tags => (
+      render: (tags) => (
         <>
-          {tags.map(tag => (
-            <Tag color='blue' key={tag}>
+          {tags.map((tag) => (
+            <Tag color="blue" key={tag}>
               {tag}
             </Tag>
           ))}
@@ -121,7 +106,7 @@ const FlightList = () => {
     }
   ];
 
-  return <Table columns={columns} dataSource={FLIGHTS_DATA} />;
+  return <Table className="flight-list" columns={columns} dataSource={FLIGHTS_DATA} />;
 };
 
 export default FlightList;
