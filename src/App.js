@@ -14,7 +14,7 @@ import { Layout } from 'antd';
 const { Sider, Content } = Layout;
 
 function App() {
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(false);
 
   const toggleCollapsed = () => setCollapsed(!collapsed);
 
