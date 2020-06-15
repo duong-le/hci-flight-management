@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Breadcrumb, Row, Col, Card, Descriptions } from 'antd';
 import { HomeOutlined } from '@ant-design/icons';
 import ImageCarousel from '../../components/image-carousel/image-carousel.component';
-import World from '../../assets/images/world.svg';
-
+import GoogleMapReact from 'google-map-react';
 import './flight-images.styles.scss';
 
+const Marker = () => (
+  <span className="material-icons" style={{ color: '#ea4335' }}>
+    room
+  </span>
+);
+
 const FlightImagesPage = () => {
+  const [center, setCenter] = useState({ lat: 21.0051018, lng: 105.8456554 });
+  const [zoom, setZoom] = useState(15);
+
   const { flightId } = useParams();
 
   return (
@@ -44,7 +52,11 @@ const FlightImagesPage = () => {
 
         <Col xs={24} sm={24} md={24} lg={6} xl={6}>
           <Card title="Location">
-            <img src={World} width={'100%'} alt="preview" />
+            <div style={{ height: '40vh', width: '100%' }}>
+              <GoogleMapReact bootstrapURLKeys={{ key: '' }} defaultCenter={center} defaultZoom={zoom}>
+                <Marker lat={21.0051018} lng={105.8456554} />
+              </GoogleMapReact>
+            </div>
           </Card>
         </Col>
       </Row>

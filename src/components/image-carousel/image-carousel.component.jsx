@@ -39,9 +39,9 @@ const ImageCarousel = () => {
             width="630"
             height="420"
             src="https://www.youtube.com/embed/Bj5ByZKVNao?controls=0&amp;start=43"
-            frameborder="0"
+            frameBorder={0}
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
       </Slider>
