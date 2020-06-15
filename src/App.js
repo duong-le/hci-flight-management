@@ -14,7 +14,7 @@ import { Layout } from 'antd';
 const { Sider, Content } = Layout;
 
 function App() {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   const toggleCollapsed = () => setCollapsed(!collapsed);
 
@@ -36,7 +36,11 @@ function App() {
           <Switch>
             <Route exact path='/' component={HomePage} />
             <Route exact path='/flight-data' component={FlightDataPage} />
-            <Route exact path='/flights/:flightId/images' component={FlightImagesPage} />
+            <Route
+              exact
+              path='/flights/:flightId/images'
+              component={FlightImagesPage}
+            />
           </Switch>
         </Content>
       </Layout>
