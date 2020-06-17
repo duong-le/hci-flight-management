@@ -25,7 +25,7 @@ function App() {
         collapsed={collapsed}
         onCollapse={toggleCollapsed}
         theme='light'
-        width={300}
+        width={400}
       >
         <h1 className='logo'>HI04</h1>
         <NavBar />
