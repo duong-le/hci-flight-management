@@ -53,14 +53,11 @@ const FlightImagesPage = () => {
         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
           <ImageCarousel />
         </Col>
-
         <Col xs={24} sm={24} md={24} lg={6} xl={6}>
           <Card title='Location'>
             <div style={{ height: '40vh', width: '100%' }}>
               <GoogleMapReact
-                bootstrapURLKeys={{
-                  key: process.env.REACT_APP_GOOGLE_MAP_API_KEY
-                }}
+                bootstrapURLKeys={{ key: '' }}
                 defaultCenter={center}
                 defaultZoom={zoom}
               >
