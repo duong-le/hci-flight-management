@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
-import HomePage from './pages/homepage/homepage.component';
 import FlightImagesPage from './pages/flight-images/flight-images.component';
 import FlightDataPage from './pages/flight-data/flight-data.component';
 
@@ -34,7 +33,11 @@ function App() {
         <Header />
         <Content className='content-layout'>
           <Switch>
-            <Route exact path='/' component={HomePage} />
+            <Route
+              exact
+              path='/'
+              render={() => <Redirect to='/flight-data' />}
+            />
             <Route exact path='/flight-data' component={FlightDataPage} />
             <Route
               exact
