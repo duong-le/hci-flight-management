@@ -6,7 +6,7 @@ const FLIGHTS_DATA = [
     drone: 'F-150',
     location: 'New York',
     date: '03-10-2019',
-    tags: ['rainy', 'night']
+    tags: ['auto']
   },
   {
     key: '2',
@@ -15,7 +15,7 @@ const FLIGHTS_DATA = [
     drone: 'F-145',
     location: 'London',
     date: '07-15-2019',
-    tags: ['night']
+    tags: ['manual']
   },
   {
     key: '3',
@@ -24,7 +24,7 @@ const FLIGHTS_DATA = [
     drone: 'F-99',
     location: 'Sydney',
     date: '01-22-2020',
-    tags: ['cloudy']
+    tags: ['manual']
   },
   {
     key: '4',
@@ -33,7 +33,7 @@ const FLIGHTS_DATA = [
     drone: 'F-22',
     location: 'Tokyo',
     date: '12-03-2019',
-    tags: ['sunny']
+    tags: ['auto']
   },
   {
     key: '5',
@@ -42,7 +42,7 @@ const FLIGHTS_DATA = [
     drone: 'F-17',
     location: 'Denver',
     date: '03-19-2020',
-    tags: ['windy', 'cloudy']
+    tags: ['auto']
   }
 ];
 
